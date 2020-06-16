@@ -11,7 +11,7 @@
                 </div>
                 <div class="right">
                     <i class="el-icon-time"></i>
-                    <span>2020-02-02 02:02:20</span>
+                    <span>{{nowTime}}</span>
                 </div>
             </el-header>
             <el-main>
@@ -32,10 +32,6 @@
                         page:'Product'
                     },
                     {
-                        name: '成品入库看板详情',
-                        page:'ProductDetails'
-                    },
-                    {
                         name: '包材拉动',
                         page:'Packing'
                     },
@@ -44,14 +40,18 @@
                         page:'MotherTray'
                     }
                 ],
-                nowr:''
+                nowr:'',
+                nowTime:'',
             }
         },
         mounted: function () {
             this.nowr = this.$route.name
+            var self = this
+            setInterval(function () {
+                self.nowTime = self.nowDateTime()
+            }, 3000)
         },
         methods:{
-
         }
     }
 </script>
