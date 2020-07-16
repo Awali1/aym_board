@@ -16,6 +16,23 @@ body,
     width: 0px !important;
     height: 0px !important;
 }
+.lineTitle{
+    user-select: none;
+    width: 100%;
+    height: 40px;
+    p{
+        height: 50%;
+        overflow:initial;
+        border-bottom: 2px dashed #52834b;
+        span{
+            display: inline;
+            color: $activeColor;
+            margin-left: 20px;
+            line-height: 40px;
+            background-color: #05495d;
+        }
+    }
+}
 //带边框盒子
 .box{
     margin: 0;
@@ -25,23 +42,6 @@ body,
     position: relative;
     background-color: #05495dc9;
     border: 2px solid #376b7b;
-    .lineTitle{
-        user-select: none;
-        width: 100%;
-        height: 40px;
-        p{
-            height: 50%;
-            overflow:initial;
-            border-bottom: 2px dashed #52834b;
-            span{
-                display: inline;
-                color: $activeColor;
-                margin-left: 20px;
-                line-height: 40px;
-                background-color: #05495d;
-            }
-        }
-    }
     .title{
         color: $activeColor;
         user-select: none;
@@ -159,6 +159,10 @@ body,
         }
         .product,.packing,.mother_tray{
             .dqrw,.xyrw{
+                cursor: pointer;
+                .box:hover{
+                    background-color: #065770c9;
+                }
                 .boxContent{
                     height: 180px;
                     .imgBox{
@@ -190,57 +194,7 @@ body,
                         }
                         
                     }
-                    .TitleBox{
-                        float: left;
-                        color: rgb(228, 228, 228);
-                        font-size: 14px;
-                        overflow: hidden;
-                        width: calc(100% - 250px);
-                        .row{
-                            height: 30px;
-                            p{
-                                width: 50%;
-                                float: left;
-                                box-sizing: border-box;
-                                display: inline-block;
-                                .label{
-                                    display: inline-block;
-                                    width: 70px;
-                                }
-                            }
-                        }
-                        .row.progress{
-                            user-select: none;
-                            height: 50px;
-                            .el-progress-bar__outer{
-                                background-color: #16647b;
-                            }
-                            p{
-                                width: 100%;
-                                box-sizing: border-box;
-                                display: inline-block;
-                                .el-progress{
-                                    display: inline-block;
-                                    width: calc(100% - 80px);
-                                }
-                                .el-progress.progressType0 .el-progress-bar__inner{
-                                    background:#d4994c 
-                                }
-                                .el-progress.progressType1 .el-progress-bar__inner{
-                                    background:#50c1ae 
-                                }
-                                .el-progress.progressType2 .el-progress-bar__inner{
-                                    background:#31db53 
-                                }
-                            }
-                            >span{
-                                display: inline-block;
-                                margin-left: 70px;
-                                font-size: 12px;
-                                color: #1e91b4;
-                            }
-                        }
-                    }
+                    
                 }
             }
             .cprk{
@@ -253,4 +207,123 @@ body,
             }
         }
     }
+}
+
+.TitleBox{
+    float: left;
+    color: rgb(228, 228, 228);
+    font-size: 14px;
+    overflow: hidden;
+    width: calc(100% - 250px);
+    .row{
+        height: 30px;
+        p{
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            display: inline-block;
+            .label{
+                display: inline-block;
+                width: 70px;
+            }
+        }
+    }
+    .row.progress{
+        user-select: none;
+        height: 50px;
+        .el-progress-bar__outer{
+            background-color: #16647b;
+        }
+        p{
+            width: 100%;
+            box-sizing: border-box;
+            display: inline-block;
+            .el-progress{
+                display: inline-block;
+                width: calc(100% - 80px);
+            }
+            .el-progress.progressType0 .el-progress-bar__inner{
+                background:#d4994c 
+            }
+            .el-progress.progressType1 .el-progress-bar__inner{
+                background:#50c1ae 
+            }
+            .el-progress.progressType2 .el-progress-bar__inner{
+                background:#31db53 
+            }
+        }
+        >span{
+            display: inline-block;
+            margin-left: 70px;
+            font-size: 12px;
+            color: #1e91b4;
+        }
+    }
+}
+.aymDialog .el-dialog {
+    margin-bottom: 0px;
+    margin-top: 10vh !important;
+}
+
+.aymDialog.mini .el-dialog {
+    margin-bottom: 0px;
+    margin-top: 5vh !important;
+}
+
+.aymDialog .el-dialog .el-dialog__header {
+    padding: 20px 20px 10px;
+    background-color: #10586e;
+}
+
+.aymDialog .el-dialog .el-dialog__title,
+.aymDialog .el-dialog i {
+    font-size: 16px;
+    user-select: none;
+    color: rgb(221, 221, 221);
+}
+
+.aymDialog .el-dialog .el-dialog__body {
+    padding-top: 10px;
+    color: rgb(221, 221, 221);
+    background-color: #00465b;
+}
+
+.aymDialog .el-dialog .el-dialog__footer {
+    padding: 10px 20px 10px;
+    background-color: #10586e;
+}
+
+.dialog_inputBox {
+    margin: 0 auto;
+    width: 400px;
+}
+
+.el-form-item__label {
+    text-align: right;
+    color: rgb(218, 218, 218);
+}
+
+.el-input input{
+    background-color: #033747;
+    color: white;
+    border: 1px solid rgb(36, 102, 139);
+    border-radius: 0px;
+}
+.leftT{
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 50%;
+    height: 15vh;
+    float: left;
+    overflow-y: scroll;
+    margin-bottom: 2vh;
+}
+.rightT{
+    padding: 0 20px;
+    width: 50%;
+    box-sizing: border-box;
+    height: 15vh;
+    float: left;
+    overflow-y: scroll;
+    margin-bottom: 2vh;
 }

@@ -38,6 +38,10 @@
                     {
                         name: '母托盘搬运',
                         page:'MotherTray'
+                    },
+                    {
+                        name: '地面链',
+                        page:'floor'
                     }
                 ],
                 nowr:'',

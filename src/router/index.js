@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Product from '@/views/product' //成品入库看板
 import Packing from '@/views/packing' //包材拉动
 import MotherTray from '@/views/mother_tray' //母托盘搬运
+import floor from '@/views/floor' //地面连
 
 
 Vue.use(Router)
@@ -31,6 +32,14 @@ export default new Router({
       component: MotherTray,
       meta:{
         name:'母托盘搬运'
+      }
+    },
+    {
+      path: '/floor',
+      name: 'floor',
+      component: floor,
+      meta:{
+        name:'地面链'
       }
     }
   ]
