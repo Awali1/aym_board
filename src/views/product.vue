@@ -133,16 +133,17 @@
                     url: '/api/task',
                     method: 'GET',
                     params: {
-                        pageNum: '',
-                        pageSize: 'PRODPULL',
+                        pageNum: '1',
+                        pageSize: '10',
                         // PRODPULL成品拉动,MATPULL包材拉动,PALLETPULL母托盘拉动,PRODHOUSE成品入立库,LINEPOINT点到点拉动
-                        taskType: '',
+                        taskType: 'PRODPULL',
                         // START任务开始,EXECUTE任务进行中,CANCEL任务取消,COMPLETE任务正常完成,WARNCOMP任务异常完成
                         taskStatus: '',
                         beginTime: '',
                         endTime: ''
                     }
                 }).then(function (resp) {
+                    console.log(resp);
                     self.tableData = resp.data.list
                     self.task01 = self.tableData[0]
                     self.task02 = self.tableData[1]

@@ -11,7 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api/**': 'http://192.168.43.174:8089/AYMWCS/',
+      '/api/**': 'http://localhost:8089/AYMWCS/',
       '/target_api': {
           target: 'http://a3563m019:8080/',
           changeOrigin: true,
