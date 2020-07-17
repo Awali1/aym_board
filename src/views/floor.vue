@@ -9,7 +9,7 @@
                     <div class="boxContent">
                         <div class="imgBox">
                             <img src="../assets/images/mt01.png">
-                            <span>包材种类</span>
+                            <span>地面链入口1</span>
                             <p>{{task01.tc_code}}</p>
                         </div>
                         <div class="TitleBox">
@@ -47,7 +47,7 @@
                     <div class="boxContent">
                         <div class="imgBox">
                             <img src="../assets/images/mt01.png">
-                            <span>包材种类</span>
+                            <span>地面链入口2</span>
                             <p>{{task02.tc_code}}</p>
                         </div>
                         <div class="TitleBox">
@@ -86,7 +86,7 @@
                     <div class="boxContent">
                         <div class="imgBox">
                             <img src="../assets/images/mt01.png">
-                            <span>包材种类</span>
+                            <span>地面链入口3</span>
                             <p>{{task01.tc_code}}</p>
                         </div>
                         <div class="TitleBox">
@@ -124,7 +124,7 @@
                     <div class="boxContent">
                         <div class="imgBox">
                             <img src="../assets/images/mt01.png">
-                            <span>包材种类</span>
+                            <span>立库</span>
                             <p>{{task02.tc_code}}</p>
                         </div>
                         <div class="TitleBox">

@@ -7,7 +7,7 @@
                     <el-select v-model="nowr" @change="jump(nowr)">
                         <el-option v-for="item in routeList" :key="item.page" :label="item.name" :value="item.page">
                         </el-option>
-                      </el-select>
+                    </el-select>
                 </div>
                 <div class="right">
                     <i class="el-icon-time"></i>
@@ -40,7 +40,7 @@
                         page:'MotherTray'
                     },
                     {
-                        name: '地面链',
+                        name: '地面链/立库',
                         page:'floor'
                     }
                 ],

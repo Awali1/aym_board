@@ -126,37 +126,37 @@
                             <div class="row">
                                 <p>
                                     <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span>task00300</span>
                                 </p>
                             </div>
                             <div class="row">
                                 <p>
-                                    <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span class="label">产线：</span>
+                                    <span>产线1</span>
                                 </p>
                             </div>
                             <div class="row">
                                 <p>
-                                    <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span class="label">物料号：</span>
+                                    <span>8721254522</span>
                                 </p>
                             </div>
                             <div class="row">
                                 <p>
-                                    <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span class="label">产生时间：</span>
+                                    <span>2020-07-16 12:00:00</span>
                                 </p>
                             </div>
                             <div class="row">
                                 <p>
-                                    <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span class="label">任务当前动作：</span>
+                                    <span>等待AGV拉动</span>
                                 </p>
                             </div>
                             <div class="row">
                                 <p>
-                                    <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span class="label">状态：</span>
+                                    <span>正常</span>
                                 </p>
                             </div>
                         </div>
@@ -165,14 +165,14 @@
                         <div class="TitleBox">
                             <div class="row">
                                 <p>
-                                    <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span class="label">箱号：</span>
+                                    <span>TK01545115</span>
                                 </p>
                             </div>
                             <div class="row">
                                 <p>
-                                    <span class="label">任务号：</span>
-                                    <span>{{}}</span>
+                                    <span class="label">库存地：</span>
+                                    <span></span>
                                 </p>
                             </div>
                         </div>
@@ -196,26 +196,12 @@
                     </el-form-item>
                 </el-form> -->
                 <el-table :data="tableData" height="35vh">
-                    <el-table-column prop="task_code" align="center" label="任务号"></el-table-column>
-                    <el-table-column prop="task_path_point" align="center" label="产线"></el-table-column>
-                    <el-table-column prop="" align="center" label="物料号"></el-table-column>
-                    <el-table-column prop="aaa" align="center" label="箱号"></el-table-column>
-                    <el-table-column prop="task_path_point" align="center" label="入库口"></el-table-column>
-                    <el-table-column prop="is_top" align="center" label="优先级">
-                        <template slot-scope="scope">
-                            <p :class="scope.row.is_top? 'status03':'status02'">
-                                {{scope.row.is_top? '二级':'一级'}}
-                            </p>
-                        </template>
-                    </el-table-column>
-                    <el-table-column prop="create_time" align="center" label="产生时间"></el-table-column>
-                    <el-table-column align="center" label="状态">
-                        <template slot-scope="scope">
-                            <p class="status04 borderBox">
-                                {{scope.row.task_status}}
-                            </p>
-                        </template>
-                    </el-table-column>
+                    <el-table-column prop="1" align="center" label="任务号"></el-table-column>
+                    <el-table-column prop="2" align="center" label="动作编号"></el-table-column>
+                    <el-table-column prop="3" align="center" label="执行内容"></el-table-column>
+                    <el-table-column prop="4" align="center" label="是否报警"></el-table-column>
+                    <el-table-column prop="5" align="center" label="异常信息"></el-table-column>
+                    <el-table-column prop="6" align="center" label="完成时间"></el-table-column>
                 </el-table>
             </div>
             <span slot="footer" class="dialog-footer">
@@ -232,7 +218,50 @@
         name: 'mother_tray',
         data() {
             return {
-                tableData: [{}],
+                tableData: [{
+                    "1": 'task0030',
+                    "2": 'WCS01',
+                    "3": '接收成品入地面链拉动请求',
+                    "4": '否',
+                    "5": '',
+                    "6": '2020-07-16 16:00:00',
+                },
+                {
+                    "1": 'task0030',
+                    "2": 'WCS05',
+                    "3": 'WCS发送成品拉动请求给AGV',
+                    "4": '否',
+                    "5": '',
+                    "6": '2020-07-16 16:00:00',
+                },{
+                    "1": 'task0030',
+                    "2": 'AGV01',
+                    "3": '离开产线区域',
+                    "4": '否',
+                    "5": '',
+                    "6": '2020-07-16 16:00:00',
+                },{
+                    "1": 'task0030',
+                    "2": 'AGV01',
+                    "3": '到达地面链等待区域',
+                    "4": '是',
+                    "5": '地面链不允许进入',
+                    "6": '',
+                },{
+                    "1": 'task0030',
+                    "2": 'WCS09',
+                    "3": '确认地面链是否可以进入',
+                    "4": '',
+                    "5": '',
+                    "6": '',
+                },{
+                    "1": 'task0030',
+                    "2": 'FLOOR01',
+                    "3": '地面链允许AGV进入',
+                    "4": '',
+                    "5": '',
+                    "6": '',
+                }],
                 task01:{},
                 task02:{},
 

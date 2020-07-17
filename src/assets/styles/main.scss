@@ -45,7 +45,13 @@ body,
     .title{
         color: $activeColor;
         user-select: none;
-        width: 100%;
+        //width: 100%;
+        margin-left: 20px;
+        line-height: 40px;
+        height: 40px;
+    }
+    .selectTitle{
+        color: white;
         margin-left: 20px;
         line-height: 40px;
         height: 40px;
@@ -256,7 +262,7 @@ body,
             display: inline-block;
             margin-left: 70px;
             font-size: 12px;
-            color: #1e91b4;
+            color: yellowgreen;
         }
     }
 }
