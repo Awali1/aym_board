@@ -42,6 +42,10 @@
                     {
                         name: '地面链/立库',
                         page:'floor'
+                    },
+                    {
+                        name: '详情',
+                        page:'detail'
                     }
                 ],
                 nowr:'',
