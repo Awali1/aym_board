@@ -115,7 +115,7 @@
             </el-col>
         </el-row>
 
-        <el-dialog class="aymDialog" title="详情" :visible.sync="dialogShow" :close-on-click-modal="false" width="1000px">
+        <!-- <el-dialog class="aymDialog" title="详情" :visible.sync="dialogShow" :close-on-click-modal="false" width="1000px">
             <div>
                 <div class="lineTitle">
                     <p><span>当前任务</span></p>
@@ -181,20 +181,6 @@
                 <div class="lineTitle">
                     <p><span>当前任务</span></p>
                 </div>
-                <!-- <el-form :inline="true">
-                    <el-form-item label="王胜">
-                        <el-input placeholder="王胜"></el-input>
-                    </el-form-item>
-                    <el-form-item label="王胜">
-                        <el-select placeholder="王胜">
-                        <el-option label="王胜" value="王胜"></el-option>
-                        <el-option label="王胜" value="王胜"></el-option>
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item>
-                        <el-button type="primary" size="small" @click="">查询</el-button>
-                    </el-form-item>
-                </el-form> -->
                 <el-table :data="tableData" height="35vh">
                     <el-table-column prop="task_code" align="center" label="任务号"></el-table-column>
                     <el-table-column prop="task_path_point" align="center" label="产线"></el-table-column>
@@ -222,7 +208,7 @@
                 <el-button type="warning" size="small" @click="dialogShow=false">警告按钮</el-button>
                 <el-button type="warning" size="small" @click="dialogShow=false">警告按钮</el-button>
             </span>
-        </el-dialog>
+        </el-dialog> -->
 
     </div>
 </template>
@@ -236,8 +222,7 @@
                 task01:{},
                 task02:{},
 
-                dialogShow:false,
-                detailData:{}
+                // dialogShow:false,
             }
         },
         mounted: function () {
@@ -266,8 +251,13 @@
                 })
             },
             detail(value){
-                this.detailData = value
-                this.dialogShow = true
+                this.$router.push({
+                    name: 'detail',
+                    params: {
+                        detailData: value
+                    }
+                })
+                // this.dialogShow = true
             }
         }
     }
