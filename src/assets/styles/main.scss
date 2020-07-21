@@ -246,7 +246,7 @@ body,
 }
 
 .TitleBox2{
-    width:auto !important
+    width:auto !important,
 }
 .TitleBox{
     float: left;
@@ -269,8 +269,8 @@ body,
     }
     .rowBlock{
         p{
-            height: 4.5vh;
-            line-height: 4.5vh;
+            height: 3vh;
+            line-height: 3vh;
             box-sizing: border-box;
             .label{
                 display: inline-block;
