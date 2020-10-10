@@ -5,6 +5,7 @@ import Packing from '@/views/packing' //包材拉动
 import MotherTray from '@/views/mother_tray' //母托盘搬运
 import floor from '@/views/floor' //地面连
 import detail from '@/views/detail' //详情
+import kb from '@/views/kb' //看板
 
 
 Vue.use(Router)
@@ -49,6 +50,14 @@ export default new Router({
       component: detail,
       meta:{
         name:'详情'
+      }
+    },
+    {
+      path: '/kb',
+      name: 'kb',
+      component: kb,
+      meta:{
+        name:'拉动看板'
       }
     }
   ]

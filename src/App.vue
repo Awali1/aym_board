@@ -46,6 +46,10 @@
                     {
                         name: '详情',
                         page:'detail'
+                    },
+                    {
+                        name: '拉动看板',
+                        page:'kb'
                     }
                 ],
                 nowr:'',
