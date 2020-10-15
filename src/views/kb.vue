@@ -18,11 +18,19 @@
             style="width:200px"
             placeholder="请输入内容"
           ></el-input>
-          <el-button type="warning" style="float:right;">按钮</el-button>
+          <el-button type="primary" style="float:right;" @click="search"
+            >搜索</el-button
+          >
+          <el-button
+            type="warning"
+            style="float:right;"
+            @click="addRowShow = true"
+            >添加</el-button
+          >
         </div>
       </div>
     </div>
-    <el-col :span="12">
+    <!-- <el-col :span="12">
       <div class="box" style="height:80vh">
         <div class="title">
           成品入库列表
@@ -76,41 +84,43 @@
           </el-table>
         </div>
       </div>
-    </el-col>
-    <el-col :span="12" style="padding-left:10px">
+    </el-col> -->
+    <el-col style="padding-left:10px">
       <div class="box" style="height:80vh">
-      <div style="height:7vh;border-bottom:2px solid #376b7b;line-height:7vh;padding:0 2vh;color:#fff">
+        <div
+          style="height:7vh;border-bottom:2px solid #376b7b;line-height:7vh;padding:0 2vh;color:#fff"
+        >
           <span style="margin-right:50px">合计：2552323</span>
           <span style="margin-right:50px">产线：1号线</span>
           <span style="margin-right:50px">不合格：23</span>
-      </div>
+        </div>
         <div class="title">
           成品入库列表
         </div>
         <div class="boxContent aymTable">
           <el-table :data="tableData" height="68vh">
             <el-table-column
-              prop="task_code"
+              prop="value"
               align="center"
               label="任务号"
             ></el-table-column>
             <el-table-column
-              prop="task_path_point"
+              prop="value"
               align="center"
               label="产线"
             ></el-table-column>
             <el-table-column
-              prop=""
+              prop="value"
               align="center"
               label="物料号"
             ></el-table-column>
             <el-table-column
-              prop="aaa"
+              prop="value"
               align="center"
               label="箱号"
             ></el-table-column>
             <el-table-column
-              prop="task_path_point"
+              prop="value"
               align="center"
               label="入库口"
             ></el-table-column>
@@ -122,7 +132,7 @@
               </template>
             </el-table-column>
             <el-table-column
-              prop="create_time"
+              prop="value"
               align="center"
               label="产生时间"
             ></el-table-column>
@@ -142,6 +152,85 @@
         </div>
       </div>
     </el-col>
+    <el-dialog
+      class="aymDialog"
+      title="添加"
+      :visible.sync="addRowShow"
+      :close-on-click-modal="false"
+      width="1100px"
+    >
+      <div>
+        <div class="lineTitle">
+          <p><span>添加行</span></p>
+        </div>
+        <div style="overflow: hidden;">
+          <el-form :inline="true" label-width="110px">
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="test">
+              <el-input
+                v-model="addRowObj.value"
+                placeholder="请输入"
+              ></el-input>
+            </el-form-item>
+          </el-form>
+        </div>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="warning" size="small" @click="addRowShow = false"
+          >取消</el-button
+        >
+        <el-button type="warning" size="small" @click="addRowConfirm()"
+          >添加</el-button
+        >
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -150,12 +239,26 @@ export default {
   name: "detail",
   data() {
     return {
-      tableData: [{}],
+      addRowShow: false,
+      addRowObj: {},
+
+      tableData: [],
       input: ""
     };
   },
   mounted: function() {},
-  methods: {}
+  methods: {
+    // 搜索
+    search() {
+      alert(this.input);
+    },
+    // 添加
+    addRowConfirm() {
+      this.tableData.push(this.addRowObj);
+      this.addRowShow = false;
+      this.addRowObj = {};
+    }
+  }
 };
 </script>
 
