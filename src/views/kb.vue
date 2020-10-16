@@ -15,7 +15,7 @@
           ></span>
           **：<el-input
             v-model="input"
-            style="width:200px"
+            style="width:200px;"
             placeholder="请输入内容"
           ></el-input>
           <el-button type="primary" style="float:right;" @click="search"
@@ -23,7 +23,7 @@
           >
           <el-button
             type="warning"
-            style="float:right;"
+            style="float:right;margin-right:10px"
             @click="addRowShow = true"
             >添加</el-button
           >
@@ -85,7 +85,7 @@
         </div>
       </div>
     </el-col> -->
-    <el-col style="padding-left:10px">
+    <el-col>
       <div class="box" style="height:80vh">
         <div
           style="height:7vh;border-bottom:2px solid #376b7b;line-height:7vh;padding:0 2vh;color:#fff"
@@ -143,11 +143,13 @@
                 </p>
               </template>
             </el-table-column>
-            <!-- <el-table-column align="center" label="操作">
-                <template slot-scope="scope">
-                    <el-button type="warning" size="small" @click="detail(scope.row)">详情</el-button>
-                </template>
-            </el-table-column> -->
+            <el-table-column align="center" label="操作">
+              <template slot-scope="scope">
+                <el-button type="danger" size="small" @click="del(scope.row)"
+                  >删除</el-button
+                >
+              </template>
+            </el-table-column>
           </el-table>
         </div>
       </div>
@@ -246,17 +248,83 @@ export default {
       input: ""
     };
   },
-  mounted: function() {},
+  mounted: function() {
+    this.search();
+  },
   methods: {
     // 搜索
     search() {
-      alert(this.input);
+      this.$http
+        .request({
+          url: "/api/stampTask/select",
+          method: "GET",
+          params: {}
+        })
+        .then(resp => {
+          if (resp.status == 100) {
+            this.tableData = resp.data;
+          } else {
+            self.$message({
+              type: "warning",
+              message: resp.message
+            });
+          }
+        });
     },
     // 添加
     addRowConfirm() {
       this.tableData.push(this.addRowObj);
-      this.addRowShow = false;
-      this.addRowObj = {};
+      this.$http
+        .request({
+          url: "/api/stampTask/add",
+          method: "PUT",
+          showLoading: true,
+          data: this.addRowObj
+        })
+        .then(resp => {
+          if (resp.status == 100) {
+            this.tableData = resp.data;
+            this.addRowShow = false;
+            this.addRowObj = {};
+          } else {
+            self.$message({
+              type: "warning",
+              message: resp.message
+            });
+          }
+        });
+    },
+    //删除
+    del(row) {
+      this.$confirm("是否删除?", "提示", {
+        confirmButtonText: "删除",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$http
+            .request({
+              url: "/api/stampTask/delete",
+              method: "POST",
+              showLoading: true,
+              params: {}
+            })
+            .then(resp => {
+              if (resp.status == 100) {
+              } else {
+                self.$message({
+                  type: "warning",
+                  message: resp.message
+                });
+              }
+            });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除"
+          });
+        });
     }
   }
 };
